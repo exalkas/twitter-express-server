@@ -223,7 +223,7 @@ export const listUsers = async (req, res) => {
       .limit(limit)
       .select("-password -__v");
 
-    const total = await Post.countDocuments();
+    const total = await User.countDocuments();
 
     res.send({ success: true, users, total });
   } catch (error) {
