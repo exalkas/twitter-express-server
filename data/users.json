@@ -1,0 +1,102 @@
+[
+  {
+    "_id": "615cefd72b3e8272f6c87501",
+    "username": "user1",
+    "email": "user1@example.com",
+    "age": 25,
+    "city": "New York",
+    "country": "United States",
+    "gender": "Male",
+    "hobbies": ["reading", "hiking"]
+  },
+  {
+    "_id": "615cefd72b3e8272f6c87502",
+    "username": "user2",
+    "email": "user2@example.com",
+    "age": 30,
+    "city": "London",
+    "country": "United Kingdom",
+    "gender": "Female",
+    "hobbies": ["painting", "swimming"]
+  },
+  {
+    "_id": "615cefd72b3e8272f6c87503",
+    "username": "user3",
+    "email": "user3@example.com",
+    "age": 28,
+    "city": "Paris",
+    "country": "France",
+    "gender": "Male",
+    "hobbies": ["photography", "cooking"]
+  },
+  {
+    "_id": "615cefd72b3e8272f6c87504",
+    "username": "user4",
+    "email": "user4@example.com",
+    "age": 35,
+    "city": "Tokyo",
+    "country": "Japan",
+    "gender": "Female",
+    "hobbies": ["gardening", "dancing"]
+  },
+  {
+    "_id": "615cefd72b3e8272f6c87505",
+    "username": "user5",
+    "email": "user5@example.com",
+    "age": 22,
+    "city": "Sydney",
+    "country": "Australia",
+    "gender": "Male",
+    "hobbies": ["gaming", "traveling"]
+  },
+  {
+    "_id": "615cefd72b3e8272f6c87506",
+    "username": "user6",
+    "email": "user6@example.com",
+    "age": 27,
+    "city": "Berlin",
+    "country": "Germany",
+    "gender": "Female",
+    "hobbies": ["yoga", "writing"]
+  },
+  {
+    "_id": "615cefd72b3e8272f6c87507",
+    "username": "user7",
+    "email": "user7@example.com",
+    "age": 31,
+    "city": "Toronto",
+    "country": "Canada",
+    "gender": "Male",
+    "hobbies": ["playing guitar", "running"]
+  },
+  {
+    "_id": "615cefd72b3e8272f6c87508",
+    "username": "user8",
+    "email": "user8@example.com",
+    "age": 29,
+    "city": "São Paulo",
+    "country": "Brazil",
+    "gender": "Female",
+    "hobbies": ["painting", "reading"]
+  },
+  {
+    "_id": "615cefd72b3e8272f6c87509",
+    "username": "user9",
+    "email": "user9@example.com",
+    "age": 33,
+    "city": "Mumbai",
+    "country": "India",
+    "gender": "Male",
+    "hobbies": ["photography", "cooking"]
+  },
+  {
+    "_id": "615cefd72b3e8272f6c87510",
+    "username": "user10",
+    "email": "user10@example.com",
+    "age": 26,
+    "city": "Johannesburg",
+    "country": "South Africa",
+    "gender": "Female",
+    "hobbies": ["dancing", "traveling"]
+  }
+]
