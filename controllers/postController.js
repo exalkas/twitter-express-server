@@ -27,14 +27,87 @@ export const list = async (req, res) => {
   try {
     console.log("🚀 ~ hello list ");
 
+    let skip = 0;
+
+    if (req.query.skip) skip = parseInt(req.query.skip);
+
+    const limit = req.query.limit || 0;
+
     const posts = await Post.find()
+      .skip(skip)
+      .limit(limit)
       .select("-__v")
-      .populate({ path: "owner", select: "username email image" }) // post owner
-      .populate({ path: "comments.owner", select: "username email image" }); // comment owner
+      .populate({ path: "owner", select: "username email image" }); // post owner
+
+    const total = await Post.countDocuments();
+
+    res.send({ success: true, posts, total });
+  } catch (error) {
+    console.log("🚀 ~ list ~ error", error.message);
+
+    res.send({ success: false, error: error.message });
+  }
+};
+export const listOne = async (req, res) => {
+  try {
+    console.log("🚀 ~ hello listOne ");
+
+    const id = req.query.id;
+
+    if (!id) return res.send({ success: false, error: "No tweet id provided" });
+
+    const post = await Post.findById(id)
+      .select("-__v")
+      .populate({ path: "owner", select: "username email image" }); // post owner
+
+    res.send({ success: true, post });
+  } catch (error) {
+    console.log("🚀 ~ listOne ~ error", error.message);
+
+    res.send({ success: false, error: error.message });
+  }
+};
+export const search = async (req, res) => {
+  try {
+    console.log("🚀 ~ hello search ");
+
+    const text = req.query.text;
+    console.log("🚀 ~ text:", text);
+
+    if (!text)
+      return res.send({ success: false, error: "No search text provided" });
+
+    const regExp = new RegExp(text, "i");
+
+    const posts = await Post.find({
+      text: regExp,
+    })
+      .select("-__v")
+      .populate({ path: "owner", select: "username email image" }); // post owner
 
     res.send({ success: true, posts });
   } catch (error) {
-    console.log("🚀 ~ list ~ error", error.message);
+    console.log("🚀 ~ search ~ error", error.message);
+
+    res.send({ success: false, error: error.message });
+  }
+};
+
+export const listByUser = async (req, res) => {
+  try {
+    console.log("🚀 ~ hello listByUser ");
+
+    const owner = req.query.user;
+
+    if (!owner) return res.send({ success: false, error: "No user provided" });
+
+    const posts = await Post.find({ owner })
+      .select("-__v")
+      .populate({ path: "owner", select: "username email image" }); // post owner
+
+    res.send({ success: true, posts });
+  } catch (error) {
+    console.log("🚀 ~ listByUser ~ error", error.message);
 
     res.send({ success: false, error: error.message });
   }

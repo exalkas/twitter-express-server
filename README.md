@@ -68,15 +68,24 @@ Here are some example outputs from these endpoints:
 4. GET /posts/list
 
 ```
-[
+{
+  "success": true,
+  "posts": [
     {
-        "_id": "615cf0362b3e8272f6c87511",
-        "owner": "615cefd72b3e8272f6c87501",
-        "text": "Just finished reading a great book!",
-        "date": "2023-05-19T10:00:00Z"
+      "_id": "615cf0362b3e8272f6c87511",
+      "text": "Just finished reading a great book!",
+      "owner": {
+        "_id": "615cefd72b3e8272f6c87501",
+        "username": "user1",
+        "email": "user1@example.com",
+        "image": "https://robohash.org/2LK.png"
+      },
+      "date": "2023-05-19T10:00:00.000Z"
     },
-    // more tweets
-]
+    // more posts
+  ],
+  "total": 20
+}
 ```
 
 5. GET /posts/listone?id=615cf0362b3e8272f6c87511

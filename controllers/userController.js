@@ -212,9 +212,20 @@ export const listUsers = async (req, res) => {
   try {
     console.log("🚀 ~ hello list ");
 
-    const users = await User.find().select("-password -__v");
+    let skip = 0;
 
-    res.send({ success: true, users });
+    if (req.query.skip) skip = parseInt(req.query.skip);
+
+    const limit = req.query.limit || 0;
+
+    const users = await User.find()
+      .skip(skip)
+      .limit(limit)
+      .select("-password -__v");
+
+    const total = await Post.countDocuments();
+
+    res.send({ success: true, users, total });
   } catch (error) {
     console.log("🚀 ~ list users ~ error", error.message);
 

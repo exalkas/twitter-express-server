@@ -18,7 +18,7 @@ app.use("/posts", postRoutes);
 const port = process.env.PORT || 4001;
 app.listen(port, () => console.log("Server is up and running at port", port));
 
-// ADD TWITS
+// ADD TWEETS
 
 // const tweets = [
 //   {

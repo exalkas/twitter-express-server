@@ -1,6 +1,9 @@
 import express from "express";
 import {
   list,
+  listOne,
+  search,
+  listByUser,
   add,
   deletePost,
   edit,
@@ -12,6 +15,9 @@ import {
 const router = express.Router();
 
 router.get("/list", list);
+router.get("/listone", listOne);
+router.get("/search", search);
+router.get("/listbyuser", listByUser);
 router.post("/add", add);
 router.delete("/delete", deletePost);
 router.put("/edit", edit);
