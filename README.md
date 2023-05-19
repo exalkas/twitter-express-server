@@ -133,4 +133,4 @@ You can use these endpoints in your code using the fetch API, Axios or any other
 
 Here is an example using the fetch API in JavaScript:
 
-`fetch('http://localhost:3000/users/list')`
+`fetch('https://twitter-express-server.vercel.app/users/list')`

@@ -4,14 +4,12 @@ export const add = async (req, res) => {
   try {
     console.log("🚀 ~ hello add ", req.body);
 
-    req.body.owner = req.user;
-
-    // if (req.file) req.body.image = req.file.path
-    // console.log("🚀 ~ add ~ req.file", req.file)
-
     const post = await (
       await Post.create(req.body)
-    ).populate({ path: "owner", select: "username email image" });
+    ).populate({
+      path: "owner",
+      select: "username email image",
+    });
 
     console.log("🚀 ~ add ~ post", post);
 
