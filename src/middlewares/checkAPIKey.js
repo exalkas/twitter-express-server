@@ -10,7 +10,7 @@ export default function checkAPIKey(req, res, next) {
   if (!apiKey) {
     return res
       .status(401)
-      .json({ success: false, message: "No API key in query parameters" });
+      .json({ success: false, message: "No API key provided" });
   }
 
   if (!apiKeys.includes(apiKey)) {

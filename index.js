@@ -4,6 +4,7 @@ import userRoutes from "./src/routes/userRoutes.js";
 import postRoutes from "./src/routes/postRoutes.js";
 import db from "./src/config/db.js";
 import cors from "cors";
+import checkAPIKey from "./src/middlewares/checkAPIKey.js";
 // import cookieParser from 'cookie-parser'
 // import Post from "./models/Post.js";
 
@@ -19,6 +20,8 @@ app.use(
 
 db();
 // app.use(cookieParser());
+app.use(checkAPIKey);
+
 app.use(express.json());
 app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
