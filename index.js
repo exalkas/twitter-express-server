@@ -10,12 +10,6 @@ import cors from "cors";
 dotenv.config();
 const app = express();
 
-db();
-// app.use(cookieParser());
-app.use(express.json());
-app.use("/users", userRoutes);
-app.use("/posts", postRoutes);
-
 app.use(
   cors({
     origin: "*",
@@ -23,6 +17,12 @@ app.use(
     preflightContinue: true,
   })
 );
+
+db();
+// app.use(cookieParser());
+app.use(express.json());
+app.use("/users", userRoutes);
+app.use("/posts", postRoutes);
 
 const port = process.env.PORT || 4001;
 app.listen(port, () => console.log("Server is up and running at port", port));
