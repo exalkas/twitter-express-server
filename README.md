@@ -22,25 +22,30 @@ The following routes are available:
 
 Here are some example outputs from these endpoints:
 
-1. GET /users/list
+1. GET `/users/list`
 
    ```
-   [
    {
-   "\_id": "615cefd72b3e8272f6c87510",
-   "username": "user10",
-   "email": "user10@example.com",
-   "age": 26,
-   "city": "Johannesburg",
-   "country": "South Africa",
-   "gender": "Female",
-   "hobbies": ["dancing", "traveling"]
-   },
+   "success": true,
+   "posts": [
+    {
+      "_id": "615cf0362b3e8272f6c87511",
+      "text": "Just finished reading a great book!",
+      "owner": {
+        "_id": "615cefd72b3e8272f6c87501",
+        "username": "user1",
+        "email": "user1@example.com",
+        "image": "https://robohash.org/2LK.png"
+      },
+      "date": "2023-05-19T10:00:00.000Z"
+    },
    // more users
-   ]
+   ],
+   "total": 20
+   }
    ```
 
-2. GET /users/listone?id=615cefd72b3e8272f6c87510
+2. GET `/users/listone?id=615cefd72b3e8272f6c87510`
 
 ```
 {
@@ -55,7 +60,7 @@ Here are some example outputs from these endpoints:
 }
 ```
 
-3. POST /posts/add
+3. POST `/posts/add`
    Request body:
 
 ```
@@ -65,7 +70,8 @@ Here are some example outputs from these endpoints:
 }
 ```
 
-4. GET /posts/list
+4. GET `/posts/list`
+   Optional: `/posts/list?skip=5&limit=10` to skip the first 5 tweets and show the next 10
 
 ```
 {
@@ -88,7 +94,7 @@ Here are some example outputs from these endpoints:
 }
 ```
 
-5. GET /posts/listone?id=615cf0362b3e8272f6c87511
+5. GET `/posts/listone?id=615cf0362b3e8272f6c87511`
 
 ```
 {
@@ -99,7 +105,7 @@ Here are some example outputs from these endpoints:
 }
 ```
 
-6. GET /posts/search?text=book
+6. GET `/posts/search?text=book`
 
 ```
 [
@@ -113,7 +119,7 @@ Here are some example outputs from these endpoints:
 ]
 ```
 
-7. GET /posts/listbyuser?user=615cefd72b3e8272f6c87510
+7. GET `/posts/listbyuser?user=615cefd72b3e8272f6c87510`
 
 ```
 [
