@@ -6,7 +6,7 @@ import db from "./src/config/db.js";
 import cors from "cors";
 import checkAPIKey from "./src/middlewares/checkAPIKey.js";
 // import cookieParser from 'cookie-parser'
-// import Post from "./models/Post.js";
+// import Post from "./src/models/Post.js";
 
 dotenv.config();
 const app = express();
@@ -28,6 +28,17 @@ app.use("/posts", postRoutes);
 
 const port = process.env.PORT || 4001;
 app.listen(port, () => console.log("Server is up and running at port", port));
+
+// DELETE TWEETS
+// const filteredPosts = await Post.find({
+//   date: { $gt: new Date("2023-05-19T15:10:00.000Z") },
+// });
+// console.log("🚀 ~ filteredPosts:", filteredPosts);
+
+// const deleteResult = await Post.deleteMany({
+//   date: { $gt: new Date("2023-05-19T15:10:00.000Z") },
+// });
+// console.log("🚀 ~ deleteResult:", deleteResult);
 
 // ADD TWEETS
 
