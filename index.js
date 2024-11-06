@@ -5,6 +5,7 @@ import postRoutes from "./src/routes/postRoutes.js";
 import db from "./src/config/db.js";
 import cors from "cors";
 import checkAPIKey from "./src/middlewares/checkAPIKey.js";
+import rateLimit from "express-rate-limit";
 // import cookieParser from 'cookie-parser'
 // import Post from "./src/models/Post.js";
 
@@ -17,6 +18,16 @@ app.use(
     preflightContinue: true,
   })
 );
+
+// Configure rate limiter: max 5 requests per minute per IP
+const limiter = rateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minute window
+  max: 5, // Limit each IP to 5 requests per `windowMs`
+  message: "Too many requests, please try again later.",
+});
+
+// Apply the rate limiter globally to all routes
+app.use(limiter);
 
 db();
 // app.use(cookieParser());
